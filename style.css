@@ -115,7 +115,7 @@ nav a:hover { opacity: 1; color: var(--lime); }
 .hero-name {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(5rem, 13vw, 12rem);
+  font-size: clamp(2rem, 7vw, 12rem);
   line-height: 0.9;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, #fff 0%, var(--pink) 40%, var(--purple) 75%, var(--blue) 100%);
@@ -502,8 +502,73 @@ footer {
   footer { flex-direction: column; gap: 0.5rem; text-align: center; }
 }
 
-@media (max-width: 480px) {
+/* ── Hamburger button ── */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile full-screen menu ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: var(--dark);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.mobile-menu a {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--lime); }
+
+@media (max-width: 640px) {
+  nav ul { display: none; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-burger { display: flex; }
+  .mobile-menu { display: flex; }
   .vibes-grid { grid-template-columns: 1fr; }
   .vibe-wide, .vibe-tall { grid-column: span 1; grid-row: span 1; }
-  nav ul { display: none; }
+  .hero-name { font-size: 2rem !important; }
+  .hero-content { padding: 0 1.5rem; padding-top: 6rem; }
 }
