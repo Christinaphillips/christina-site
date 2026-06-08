@@ -29,7 +29,7 @@ exports.handler = async (event) => {
     const { messages } = JSON.parse(event.body);
 
     const payload = JSON.stringify({
-      model: 'claude-haiku-4-5',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 500,
       system: `You are a friendly AI assistant on Christina Melas-Kyriazi's personal website.
 Answer questions about Christina warmly and concisely. Here's what you know about her:
