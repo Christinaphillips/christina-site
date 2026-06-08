@@ -1,18 +1,34 @@
+const https = require('https');
+
+function httpsPost(url, headers, body) {
+  return new Promise((resolve, reject) => {
+    const urlObj = new URL(url);
+    const options = {
+      hostname: urlObj.hostname,
+      path: urlObj.pathname,
+      method: 'POST',
+      headers: { ...headers, 'Content-Length': Buffer.byteLength(body) },
+    };
+    const req = https.request(options, (res) => {
+      let data = '';
+      res.on('data', chunk => data += chunk);
+      res.on('end', () => resolve({ status: res.statusCode, body: data }));
+    });
+    req.on('error', reject);
+    req.write(body);
+    req.end();
+  });
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
   }
 
-  const { messages } = JSON.parse(event.body);
+  try {
+    const { messages } = JSON.parse(event.body);
 
-  const response = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': process.env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
+    const payload = JSON.stringify({
       model: 'claude-3-5-haiku-20241022',
       max_tokens: 500,
       system: `You are a friendly AI assistant on Christina Melas-Kyriazi's personal website.
@@ -26,16 +42,16 @@ Answer questions about Christina warmly and concisely. Here's what you know abou
 - Previously a product leader at Affirm and an active angel investor
 
 ## Notable Portfolio Companies
-- Crosby (AI-powered contract review), Adaptive (AI-native home health), Meela (AI companion for seniors), MagicSchool (AI for education), Loyal (canine longevity), Aleph (financial data platform)
+- Crosby (AI-powered contract review), Adaptive Innovations (AI-native home health), Meela (AI companion for seniors), MagicSchool (AI for education), Loyal (canine longevity), Aleph (financial data platform), Carrot Fertility, Imprint, Ansa, Marriage Pact, and many more
 
 ## Personal
 - Also goes by Christina Phillips
 - Has three kids and loves running, especially in San Francisco's Presidio
-- Passionate about culinary experiences, Japanese cuisine, and artisanal craftsmanship
-- A builder, thinker, and curious person at the intersection of technology and creativity
-- Loves collecting references, reading voraciously, and curating things that inspire her
-- Interested in flow states, deep reading, and technology as a creative force
-- Has a strong interest in energy, education, fertility, skincare, jewelry, and Hermès
+- Loves matcha lattes
+- Armenian heritage — Yerevan holds a special place in her heart
+- Passionate about Japanese cuisine, artisanal craftsmanship, and Hermès (she calls it "an investment thesis")
+- Interested in energy, education, fertility, skincare, and jewelry
+- Loves flow states, deep reading, and technology as a creative force
 
 ## Contact & Links
 - Website: christinamk.com
@@ -49,20 +65,42 @@ Answer questions about Christina warmly and concisely. Here's what you know abou
 - Your job is two-way: answer questions about Christina AND get the visitor talking about themselves
 - Ask follow-up questions: what they're working on, what brought them here, what they're excited about
 - If someone mentions their work, a startup, or an idea — show genuine interest and dig in
-- Naturally weave in relevant things about Christina (e.g. if they mention healthcare, mention Carrot Fertility or her interest in the space)
 - End most responses with a curious, playful question back to them
-- If asked something you don't know about Christina, say you're not sure but invite them to reach out — and maybe tease them a little for stumping you
 - Never be boring. Short, punchy, fun.
 
 Keep responses to 2-3 sentences + a question. No essays.`,
       messages,
-    }),
-  });
+    });
 
-  const data = await response.json();
-  return {
-    statusCode: 200,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ reply: data.content[0].text }),
-  };
+    const result = await httpsPost(
+      'https://api.anthropic.com/v1/messages',
+      {
+        'Content-Type': 'application/json',
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      payload
+    );
+
+    const data = JSON.parse(result.body);
+
+    if (!data.content || !data.content[0]) {
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Unexpected API response', detail: result.body }),
+      };
+    }
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reply: data.content[0].text }),
+    };
+  } catch (err) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: err.message }),
+    };
+  }
 };
