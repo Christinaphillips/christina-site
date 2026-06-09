@@ -56,7 +56,6 @@ Answer questions about Christina warmly and concisely. Here's what you know abou
 ## Contact & Links
 - Website: christinamk.com
 - Twitter/X: @ChristinaPhili5
-- Email: christina.n.phillips@gmail.com
 - BCV profile: baincapitalventures.com/team/christina-melas-kyriazi/
 
 ## Your Personality & Goal
