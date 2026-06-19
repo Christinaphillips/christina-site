@@ -136,6 +136,53 @@ nav a:hover { opacity: 1; color: var(--lime); }
   animation-delay: 0.5s;
 }
 
+.hero-chat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 480px;
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  padding: 0.4rem 0.4rem 0.4rem 1.5rem;
+  margin-bottom: 2.5rem;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: 0.8s;
+  transition: border-color 0.2s, background 0.2s;
+}
+.hero-chat:focus-within {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.12);
+}
+.hero-chat-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  min-width: 0;
+}
+.hero-chat-input::placeholder { color: rgba(255,248,240,0.55); }
+.hero-chat-send {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+.hero-chat-send:hover { transform: scale(1.08); }
+
 .scroll-cta {
   display: inline-flex;
   align-items: center;
@@ -729,6 +776,28 @@ footer {
   border-bottom-right-radius: 4px;
 }
 .chat-msg.typing { opacity: 0.5; font-style: italic; }
+
+.chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+.chat-chip {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  padding: 0.45rem 0.9rem;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.chat-chip:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.35);
+}
 
 .chat-input-row {
   display: flex;

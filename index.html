@@ -46,6 +46,14 @@
     <div class="hero-content">
       <p class="hero-eyebrow">oh hey, you found me</p>
       <h1 class="hero-name">Christina<br/>Melas-<br/>Kyriazi</h1>
+
+      <form class="hero-chat" id="heroChat">
+        <input type="text" id="heroChatInput" class="hero-chat-input" placeholder="Ask me anything about Christina…" autocomplete="off" />
+        <button type="submit" class="hero-chat-send" aria-label="Send">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+
       <a href="#about" class="scroll-cta">
         <span>ok fine, keep scrolling</span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -187,9 +195,10 @@
         <p>The original. Chaos, craft, and mastery all in one place — the kind of thing that reminds you excellence is a practice.</p>
       </div>
 
-      <div class="vibe-card vibe-quote">
-        <blockquote>"Hermès is not a luxury. It's an investment thesis."</blockquote>
-        <cite>— me, justifying things</cite>
+      <div class="vibe-card vibe-text">
+        <span class="vibe-emoji">📈</span>
+        <h4>Macroeconomics</h4>
+        <p>The big forces shaping everything — rates, cycles, policy. Understanding the macro makes the micro make sense.</p>
       </div>
 
       <div class="vibe-card vibe-text">
@@ -255,6 +264,11 @@
     <div class="chat-messages" id="chatMessages">
       <div class="chat-msg assistant">
         spill it — what do you wanna know? 👀
+      </div>
+      <div class="chat-suggestions" id="chatSuggestions">
+        <button class="chat-chip">What's her investment thesis?</button>
+        <button class="chat-chip">How do I pitch her?</button>
+        <button class="chat-chip">Tell me a fun fact</button>
       </div>
     </div>
     <div class="chat-input-row">
