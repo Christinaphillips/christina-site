@@ -40,9 +40,12 @@ heroForm.addEventListener('submit', e => {
 });
 
 // Auto-open after a few seconds (once, if the user hasn't engaged yet)
-setTimeout(() => {
-  if (!hasInteracted) openChat();
-}, 4000);
+// Skipped on mobile / narrow screens to avoid interrupting.
+if (window.matchMedia('(min-width: 641px)').matches) {
+  setTimeout(() => {
+    if (!hasInteracted) openChat();
+  }, 4000);
+}
 
 function addMsg(text, role) {
   const div = document.createElement('div');
