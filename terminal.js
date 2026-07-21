@@ -4,7 +4,7 @@ const heroTag  = document.getElementById('heroTag');
 const aboutBlock = document.getElementById('aboutBlock');
 
 const NAME = 'christina melas-kyriazi';
-const TAG  = 'investor · san francisco · likes the weeds';
+const TAG  = 'investor · san francisco';
 
 function typeInto(el, text, speed) {
   return new Promise(resolve => {
