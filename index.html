@@ -3,294 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Christina Melas-Kyriazi</title>
+  <title>christina@cmk ~ %</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="terminal.css?v=2" />
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <span class="nav-logo">CMK</span>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#media">Media</a></li>
-      <li><a href="#vibes">Vibes</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav-burger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-menu">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#media">Media</a></li>
-      <li><a href="#vibes">Vibes</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <div class="term-bar">
+    <span class="dot r"></span>
+    <span class="dot y"></span>
+    <span class="dot g"></span>
+    <span class="term-bar-title">christina@cmk ~ %</span>
+    <nav class="term-nav">
+      <a href="#portfolio">portfolio</a>
+      <a href="#media">media</a>
+      <a href="#vibes">vibes</a>
+      <a href="#contact">contact</a>
+    </nav>
   </div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-bg">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow">oh hey, you found me</p>
-      <h1 class="hero-name">Christina<br/>Melas-<br/>Kyriazi</h1>
+  <main class="session">
 
-      <form class="hero-chat" id="heroChat">
-        <input type="text" id="heroChatInput" class="hero-chat-input" placeholder="Ask me anything about Christina…" autocomplete="off" />
-        <button type="submit" class="hero-chat-send" aria-label="Send">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
+    <!-- HERO / ABOUT -->
+    <div class="cmd">cat about.txt</div>
+    <div class="out">
+      <div class="hero-name" id="heroName"></div>
+      <div class="hero-tag" id="heroTag"></div>
+    </div>
+
+    <div class="out about-text" id="aboutBlock" style="margin-top:1.25rem;">
+      <p>I'm Christina — I'm an investor. I spend my days talking to brilliant founders and occasionally making good decisions. I love diving into the weeds on product and design. I am interested in many spaces… AI, fintech, consumer, healthcare, energy, hardware, etc.</p>
+      <p>When I'm not working, I'm wrangling three kids, running through the Presidio, and drinking a matcha latte.</p>
+    </div>
+
+    <!-- CHAT -->
+    <div class="cmd">ask christina --anything</div>
+    <div class="chat-out">
+      <div class="chat-log" id="chatLog">
+        <div class="chat-line"><span class="who">christina_ai:</span> <span class="txt">spill it — what do you wanna know? 👀</span></div>
+      </div>
+      <form class="chat-input-line" id="chatForm">
+        <span class="prompt">&gt;</span>
+        <input type="text" id="chatInput" placeholder="type a question and hit enter" autocomplete="off" />
       </form>
+      <div class="chat-hints" id="chatHints">
+        <button type="button" class="chat-hint">what's her investment thesis?</button>
+        <button type="button" class="chat-hint">how do I pitch her?</button>
+        <button type="button" class="chat-hint">tell me a fun fact</button>
+      </div>
+    </div>
 
-      <a href="#about" class="scroll-cta">
-        <span>ok fine, keep scrolling</span>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <!-- PORTFOLIO -->
+    <div class="cmd" id="portfolio">ls portfolio/</div>
+    <div class="out">Companies I've backed or angel invested in —</div>
+    <div class="portfolio-out">
+      <span class="co">Adaptive Innovations <span class="tag">ai·health</span></span>
+      <span class="co">Crosby <span class="tag">ai·legal</span></span>
+      <span class="co">MagicSchool <span class="tag">ai·edu</span></span>
+      <span class="co">Meela <span class="tag">ai</span></span>
+      <span class="co">Aleph <span class="tag">fintech</span></span>
+      <span class="co">Autocomplete <span class="tag">ai</span></span>
+      <span class="co">Marriage Pact <span class="tag">consumer</span></span>
+      <span class="co">Ansa <span class="tag">fintech</span></span>
+      <span class="co">Carrot Fertility <span class="tag">health</span></span>
+      <span class="co">Imprint <span class="tag">fintech</span></span>
+      <span class="co">Odessia <span class="tag">ai</span></span>
+      <span class="co">Emerald AI <span class="tag">ai</span></span>
+      <span class="co">Habi <span class="tag">proptech</span></span>
+      <span class="co">Seso <span class="tag">marketplace</span></span>
+      <span class="co">Fragment <span class="tag">fintech</span></span>
+      <span class="co">Ello <span class="tag">ai</span></span>
+      <span class="co">Stealth <span class="tag">ai</span></span>
+      <span class="co">Valleysteer <span class="tag">health·ai</span></span>
+      <span class="co">Kudos <span class="tag">fintech</span></span>
+      <span class="co">Ganymede <span class="tag">infra</span></span>
+      <span class="co">Ava Finance <span class="tag">fintech</span></span>
+      <span class="co">Fractional <span class="tag">proptech</span></span>
+      <span class="co">Catch <span class="tag">fintech</span></span>
+      <span class="co">Eco <span class="tag">crypto</span></span>
+      <span class="co">EcoCart <span class="tag">commerce</span></span>
+      <span class="co">Sanctuary <span class="tag">wellness</span></span>
+      <span class="co">Open <span class="tag">wellness</span></span>
+      <span class="co">Needed <span class="tag">cpg</span></span>
+      <span class="co">Mezcal Rosaluna <span class="tag">consumer</span></span>
+      <span class="co">Rex <span class="tag">consumer</span></span>
+      <span class="co">&amp; others <span class="tag"></span></span>
+    </div>
+
+    <!-- MEDIA -->
+    <div class="cmd" id="media">cat press.log</div>
+    <div class="out">Things I've said out loud that someone recorded —</div>
+    <div class="media-out">
+      <a class="media-row" href="https://getthecheckpod.substack.com/p/inside-bcv-partner-christina-melas" target="_blank" rel="noopener">
+        <div class="m-meta">get the check pod · 2026</div>
+        <div class="m-title">Inside BCV: Partner Christina Melas-Kyriazi on AI applications and scouting an Olympian →</div>
+      </a>
+      <a class="media-row" href="https://www.acquired.fm/acq2-episodes/tradfi-vs-crypto-explaining-bnpl-and-whats-next-in-fintech-with-bain-capital-ventures-christina-melas-kyriazi" target="_blank" rel="noopener">
+        <div class="m-meta">acq2 · acquired · 2022</div>
+        <div class="m-title">TradFi vs. Crypto, Explaining BNPL, and What's Next in Fintech →</div>
       </a>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label">01 — About</div>
-    <div class="about-grid">
-      <div class="about-portrait">
-        <div class="portrait-placeholder">
-          <span>CMK</span>
-        </div>
-      </div>
-      <div class="about-text">
-        <h2>A little about me</h2>
-        <p>
-          I'm Christina — I'm an investor. I spend my days talking to brilliant founders and occasionally making good decisions. I love diving into the weeds on product and design. I am interested in many spaces… AI, fintech, consumer, healthcare, energy, hardware, etc.
-        </p>
-        <p>
-          When I'm not working, I'm wrangling three kids, running through the Presidio, and drinking a matcha latte.
-        </p>
-        <div class="about-tags">
-          <span class="tag">VC Partner</span>
-          <span class="tag">3x mom</span>
-          <span class="tag">Runner</span>
-          <span class="tag">Chronically curious</span>
-        </div>
-      </div>
+    <!-- VIBES -->
+    <div class="cmd" id="vibes">ls vibes/</div>
+    <div class="vibes-out">
+      <div class="vibe"><div class="v-name">flow-states</div><div class="v-desc">Being completely absorbed in creative work, where time dissolves and everything clicks.</div></div>
+      <div class="vibe quote"><div class="v-name">proverb.txt</div><div class="v-desc">"She believed she could, so she did. Also she had great shoes."</div></div>
+      <div class="vibe"><div class="v-name">reading-deeply</div><div class="v-desc">Books, essays, long-form anything. The kind of writing that changes how you see the world.</div></div>
+      <div class="vibe"><div class="v-name">tsukiji-fish-market</div><div class="v-desc">Chaos, craft, and mastery in one place — a reminder that excellence is a practice.</div></div>
+      <div class="vibe"><div class="v-name">macroeconomics</div><div class="v-desc">The big forces shaping everything — rates, cycles, policy. The macro makes the micro make sense.</div></div>
+      <div class="vibe"><div class="v-name">meditation</div><div class="v-desc">The one thing that actually works. Clarity, calm, and occasionally falling asleep.</div></div>
+      <div class="vibe"><div class="v-name">yerevan-armenia</div><div class="v-desc">My heritage. Pink tuff stone, ancient history, and a resilience that runs in the blood.</div></div>
+      <div class="vibe"><div class="v-name">solar-energy</div><div class="v-desc">The most abundant power source we have, getting cheaper every year. The future runs on sunlight.</div></div>
+      <div class="vibe"><div class="v-name">rap-music</div><div class="v-desc">Wordplay, ambition, storytelling, and hustle — all in four minutes.</div></div>
     </div>
-  </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="section-label">02 — Portfolio</div>
-    <h2 class="section-title">Portfolio</h2>
-    <p class="section-sub">Companies I've backed or angel invested in.</p>
-
-    <div class="company-list">
-      <div class="company-item"><span class="company-name">Adaptive Innovations</span><span class="company-tag">AI · Health</span></div>
-      <div class="company-item"><span class="company-name">Crosby</span><span class="company-tag">AI · Legal</span></div>
-      <div class="company-item"><span class="company-name">MagicSchool</span><span class="company-tag">AI · Education</span></div>
-      <div class="company-item"><span class="company-name">Meela</span><span class="company-tag">AI · Companions</span></div>
-      <div class="company-item"><span class="company-name">Aleph</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Autocomplete</span><span class="company-tag">AI</span></div>
-      <div class="company-item"><span class="company-name">Marriage Pact</span><span class="company-tag">Consumer</span></div>
-      <div class="company-item"><span class="company-name">Ansa</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Carrot Fertility</span><span class="company-tag">Fertility · Health</span></div>
-      <div class="company-item"><span class="company-name">Imprint</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Odessia</span><span class="company-tag">AI</span></div>
-      <div class="company-item"><span class="company-name">Emerald AI</span><span class="company-tag">AI</span></div>
-      <div class="company-item"><span class="company-name">Habi</span><span class="company-tag">Proptech</span></div>
-      <div class="company-item"><span class="company-name">Seso</span><span class="company-tag">Labor Marketplace</span></div>
-      <div class="company-item"><span class="company-name">Fragment</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Ello</span><span class="company-tag">AI</span></div>
-      <div class="company-item"><span class="company-name">Stealth</span><span class="company-tag">AI</span></div>
-      <div class="company-item"><span class="company-name">Valleysteer</span><span class="company-tag">Health · AI</span></div>
-      <div class="company-item"><span class="company-name">Kudos</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Ganymede</span><span class="company-tag">Infra</span></div>
-      <div class="company-item"><span class="company-name">Ava Finance</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Fractional</span><span class="company-tag">Proptech</span></div>
-      <div class="company-item"><span class="company-name">Catch</span><span class="company-tag">Fintech</span></div>
-      <div class="company-item"><span class="company-name">Eco</span><span class="company-tag">Crypto · Fintech</span></div>
-      <div class="company-item"><span class="company-name">EcoCart</span><span class="company-tag">Commerce</span></div>
-      <div class="company-item"><span class="company-name">Sanctuary</span><span class="company-tag">Wellness</span></div>
-      <div class="company-item"><span class="company-name">Open</span><span class="company-tag">Meditation · Wellness</span></div>
-      <div class="company-item"><span class="company-name">Needed</span><span class="company-tag">CPG</span></div>
-      <div class="company-item"><span class="company-name">Mezcal Rosaluna</span><span class="company-tag">Consumer</span></div>
-      <div class="company-item"><span class="company-name">Rex</span><span class="company-tag">Consumer</span></div>
-      <div class="company-item"><span class="company-name">& others</span><span class="company-tag"></span></div>
+    <!-- CONTACT -->
+    <div class="cmd" id="contact">contact --links</div>
+    <div class="contact-out">
+      <a href="https://x.com/ChristinaPhili5" target="_blank" rel="noopener">[ twitter ]</a>
+      <a href="https://www.linkedin.com/in/christinanphillips/" target="_blank" rel="noopener">[ linkedin ]</a>
     </div>
-  </section>
 
-  <!-- MEDIA -->
-  <section id="media">
-    <div class="section-label">03 — Media</div>
-    <h2 class="section-title">Press &amp; Pods</h2>
-    <p class="section-sub">Things I've said out loud that someone recorded.</p>
+    <div class="foot">© 2026 christina melas-kyriazi · built at nap time ✦</div>
 
-    <div class="media-list">
+  </main>
 
-      <a href="https://getthecheckpod.substack.com/p/inside-bcv-partner-christina-melas" target="_blank" rel="noopener" class="media-item">
-        <div class="media-meta">
-          <span class="media-outlet">Get the Check Pod</span>
-          <span class="media-year">2026</span>
-        </div>
-        <h3 class="media-title">Inside BCV: Partner Christina Melas-Kyriazi on AI applications and scouting an Olympian</h3>
-        <span class="media-arrow">→</span>
-      </a>
-
-      <a href="https://www.acquired.fm/acq2-episodes/tradfi-vs-crypto-explaining-bnpl-and-whats-next-in-fintech-with-bain-capital-ventures-christina-melas-kyriazi" target="_blank" rel="noopener" class="media-item">
-        <div class="media-meta">
-          <span class="media-outlet">ACQ2 · Acquired</span>
-          <span class="media-year">2022</span>
-        </div>
-        <h3 class="media-title">TradFi vs. Crypto, Explaining BNPL, and What's Next in Fintech</h3>
-        <span class="media-arrow">→</span>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- VIBES -->
-  <section id="vibes">
-    <div class="section-label">04 — Vibes</div>
-    <h2 class="section-title">Things That<br/>Inspire Me</h2>
-    <p class="section-sub">Things that make my brain light up.</p>
-
-    <div class="vibes-grid">
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">🌊</span>
-        <h4>Flow states</h4>
-        <p>The feeling of being completely absorbed in creative work, where time dissolves and everything clicks.</p>
-      </div>
-
-      <div class="vibe-card vibe-quote">
-        <blockquote>"She believed she could, so she did. Also she had great shoes."</blockquote>
-        <cite>— updated proverb</cite>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">📚</span>
-        <h4>Reading deeply</h4>
-        <p>Books, essays, long-form anything. The kind of writing that changes how you see the world.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">🔮</span>
-        <h4>The future</h4>
-        <p>Technology as magic. Building things that would've seemed impossible a decade ago.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">🐟</span>
-        <h4>Tsukiji Fish Market</h4>
-        <p>The original. Chaos, craft, and mastery all in one place — the kind of thing that reminds you excellence is a practice.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">📈</span>
-        <h4>Macroeconomics</h4>
-        <p>The big forces shaping everything — rates, cycles, policy. Understanding the macro makes the micro make sense.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">🧘</span>
-        <h4>Meditation</h4>
-        <p>The one thing that actually works. Clarity, calm, and occasionally falling asleep — all valid outcomes.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">🇦🇲</span>
-        <h4>Yerevan, Armenia</h4>
-        <p>My heritage. A city of pink tuff stone, ancient history, and a resilience that runs in the blood.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">☀️</span>
-        <h4>Solar energy</h4>
-        <p>The most abundant power source we have, getting cheaper every year. The future runs on sunlight.</p>
-      </div>
-
-      <div class="vibe-card vibe-text">
-        <span class="vibe-emoji">🎤</span>
-        <h4>Rap music</h4>
-        <p>Wordplay, ambition, storytelling, and hustle — all in four minutes. The soundtrack to getting things done.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
-      <div class="section-label">05 — Contact</div>
-      <h2>don't be a stranger</h2>
-      <p>I genuinely love meeting interesting people.</p>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/christinanphillips/" target="_blank" rel="noopener" class="contact-link">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-        <a href="https://x.com/ChristinaPhili5" target="_blank" rel="noopener" class="contact-link">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          Twitter / X
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>© 2026 Christina Melas-Kyriazi</span>
-    <span>built at nap time ✦</span>
-  </footer>
-
-  <script src="script.js?v=3"></script>
-
-  <!-- Chat Widget -->
-  <button class="chat-bubble" id="chatBubble" aria-label="Chat with AI">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  </button>
-
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-      <div class="chat-header-info">
-        <div class="chat-avatar">CMK</div>
-        <div>
-          <div class="chat-title">Ask about Christina</div>
-          <div class="chat-subtitle">AI assistant · usually instant</div>
-        </div>
-      </div>
-      <button class="chat-close" id="chatClose">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="chat-msg assistant">
-        spill it — what do you wanna know? 👀
-      </div>
-      <div class="chat-suggestions" id="chatSuggestions">
-        <button class="chat-chip">What's her investment thesis?</button>
-        <button class="chat-chip">How do I pitch her?</button>
-        <button class="chat-chip">Tell me a fun fact</button>
-      </div>
-    </div>
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" class="chat-input" placeholder="Ask something..." />
-      <button class="chat-send" id="chatSend">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <script src="chat.js?v=3"></script>
+  <script src="terminal.js?v=2"></script>
 </body>
 </html>
