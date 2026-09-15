@@ -18,7 +18,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--green);
-  font-family: 'Courier New', ui-monospace, Menlo, Monaco, monospace;
+  font-family: 'IBM Plex Mono', ui-monospace, Menlo, Monaco, monospace;
   font-size: 15px;
   line-height: 1.7;
   padding-top: 42px;
@@ -92,13 +92,13 @@ body::before {
 
 /* ── Hero ── */
 .hero-name {
-  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   color: var(--amber);
-  font-size: clamp(2rem, 6.5vw, 3.4rem);
+  font-size: clamp(1.9rem, 6vw, 3.2rem);
   line-height: 1.1;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0.5rem 0 0.25rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
 }
 .hero-tag { color: var(--green); }
 .hero-tag::before { content: '// '; color: var(--green-dim); }
