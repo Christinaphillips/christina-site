@@ -2,15 +2,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0B1E12;
-  --bg-panel:  #0e2617;
-  --bg-inset:  #08170d;
-  --border:    #1c3a26;
-  --green:     #3FCE6F;
-  --green-dim: #6f8f7a;
-  --green-br:  #eafff0;
-  --amber:     #F5B942;
-  --amber-dim: #b98a2e;
+  --bg:        #2E3440;
+  --bg-panel:  #3B4252;
+  --bg-inset:  #272B35;
+  --border:    #434C5E;
+  --green:     #88C0D0;
+  --green-dim: #6B7688;
+  --green-br:  #ECEFF4;
+  --amber:     #81A1C1;
+  --amber-dim: #5E81AC;
 }
 
 html { scroll-behavior: smooth; }
